@@ -5,3 +5,14 @@ function BankAccount(name, deposit) {
 };
 
 //user interface logic
+$(function() {
+  $("#user-registration").submit(function(event) {
+    event.preventDefault();
+
+    var inputedName = $("#user-name").val();
+    var initialDeposit = $("#initial-deposit").val();
+    var newAccount = new BankAccount(inputedName, initialDeposit);
+
+    $("ul#users").append("<li class='user'>" + newAccount.name + "</li>");
+  });
+});
