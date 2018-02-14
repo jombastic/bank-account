@@ -20,17 +20,49 @@
                 <label for="user-name">Name:</label>
                 <input type="text" id="user-name" /><br />
                 <label for="initial-deposit">Initial Deposit:</label>
-                <input type="number" id="initial-deposit" /><br />
+                <input type="number" id="initial-deposit" min="50" /> $<br />
                 <button type="submit">Create account</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2 class="panel-title">Deposit or withdraw funds:</h2>
+            </div>
+            <div class="panel-body">
+              <form id="add-or-withdraw">
+                <fieldset disabled="disabled">
+                  <label for="increase-deposit">Deposit Amount:</label>
+                  <input type="number" id="increase-deposit" /> $<br />
+                  <label for="withdraw">Withdrawal Amount:</label>
+                  <input type="number" id="withdraw" min="50" /> $<br />
+                  <button type="submit">Submit</button>
+                </fieldset>
               </form>
             </div>
           </div>
         </div>
       </div>
 
-      <ul id="users">
+      <div class="row">
+        <div class="col-md-4">
+          <ul id="users">
 
-      </ul>
+          </ul>
+        </div>
+        <div class="col-md-8">
+          <div class="panel panel-default text-center" id="ballance-information">
+            <div class="panel-heading">
+              <h2 class="panel-title"><strong><span class="registered-user"></span></strong>'s Current Ballance:</h2>
+            </div>
+            <div class="panel-body">
+              <p class="current-ballance"></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="js/jquery-3.2.1.js"></script>
