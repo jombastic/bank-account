@@ -11,6 +11,7 @@ BankAccount.prototype.currentBalance = function() {
 };
 
 var accounts = [];
+var arrayIndex;
 
 //user interface logic
 $(function() {
@@ -28,23 +29,21 @@ $(function() {
     $("ul#users").append("<li class='user' id=" + id + ">" + newAccount.name + "</li>");
 
     $(".user").last().click(function() {
-      var arrayIndex = $(this).attr("id");
+      arrayIndex = $(this).attr("id");
 
       $("#ballance-information").show();
       $(".registered-user").text(accounts[arrayIndex].name);
       $(".current-balance").text("$ " + accounts[arrayIndex].deposit);
       $("form#add-or-withdraw fieldset").prop("disabled", false);
-
-      $("form#add-or-withdraw").submit(function(event) {
-        event.preventDefault();
-
-        console.log(arrayIndex);
-
-        accounts[arrayIndex].depositIncrease = parseFloat($("input#increase-deposit").val());
-        accounts[arrayIndex].withdrawal = parseFloat($("input#withdraw").val());
-        accounts[arrayIndex].deposit = accounts[arrayIndex].currentBalance();
-        $(".current-balance").text("$ " + accounts[arrayIndex].deposit);
-      });
     });
+  });
+
+  $("form#add-or-withdraw").submit(function(event) {
+    event.preventDefault();
+
+    accounts[arrayIndex].depositIncrease = parseFloat($("input#increase-deposit").val());
+    accounts[arrayIndex].withdrawal = parseFloat($("input#withdraw").val());
+    accounts[arrayIndex].deposit = accounts[arrayIndex].currentBalance();
+    $(".current-balance").text("$ " + accounts[arrayIndex].deposit);
   });
 });
