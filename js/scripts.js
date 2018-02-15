@@ -38,6 +38,8 @@ $(function() {
       $("form#add-or-withdraw").submit(function(event) {
         event.preventDefault();
 
+        console.log(arrayIndex);
+
         accounts[arrayIndex].depositIncrease = parseFloat($("input#increase-deposit").val());
         accounts[arrayIndex].withdrawal = parseFloat($("input#withdraw").val());
         accounts[arrayIndex].deposit = accounts[arrayIndex].currentBalance();
