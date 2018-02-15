@@ -14,5 +14,11 @@ $(function() {
     var newAccount = new BankAccount(inputedName, initialDeposit);
 
     $("ul#users").append("<li class='user'>" + newAccount.name + "</li>");
+
+    $(".user").last().click(function() {
+      $("#ballance-information").show();
+      $(".registered-user").text(newAccount.name);
+      $(".current-ballance").text("$ " + newAccount.deposit);
+    });
   });
 });
